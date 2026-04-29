@@ -1,1 +1,0 @@
-welcome to Trinity Public School
