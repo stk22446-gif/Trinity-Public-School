@@ -24,15 +24,16 @@
         <img src="images/logo.png" alt="Trinity Public School Logo" class="brand-img" />
         <div class="brand-text">
           <strong>Trinity Public School</strong>
-          <small>Aim and Attain The Greatest</small>
+          <small>Aim and Attain The Greatest.</small>
         </div>
       </a>
 
       <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
+        <a href="achievements.html">Achievements</a>
         <a href="#academics">Academics</a>
-        <a href="#gallery">Gallery</a>
+        <a href="#school-life">School Life</a>
         <a href="#admissions">Admissions</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -43,6 +44,7 @@
       </button>
     </div>
   </header>
+  <div class="menu-overlay" id="menuOverlay"></div>
 
   <main>
     <!-- Hero Slider -->
@@ -56,7 +58,6 @@
               <h1>Building Future Leaders at<br> <span class="text-accent">Trinity Public School</span></h1>
               <p class="hero-subtitle"><span class="typing-text">Aim and Attain the Greatest</span></p>
               <div class="hero-buttons">
-                <a class="btn btn-primary rounded-full" href="#admissions">Book a Visit</a>
                 <a class="btn btn-secondary rounded-full" href="#about">Explore School</a>
               </div>
             </div>
@@ -86,6 +87,29 @@
             <div class="hero-content"></div>
           </div>
         </div>
+        <!-- Slide 5 -->
+        <div class="swiper-slide hero-slide no-zoom" style="background-image: url('images/Topper1.png');">
+          <div class="hero-image-overlay"></div>
+          <div class="container hero-grid">
+            <div class="hero-content"></div>
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="swiper-slide hero-slide no-zoom" style="background-image: url('images/Topper2.png');">
+          <div class="hero-image-overlay"></div>
+          <div class="container hero-grid">
+            <div class="hero-content"></div>
+          </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="swiper-slide hero-slide no-zoom" style="background-image: url('images/Topper3.png');">
+          <div class="hero-image-overlay"></div>
+          <div class="container hero-grid">
+            <div class="hero-content"></div>
+          </div>
+        </div>
       </div>
 
       <!-- Slider Controls -->
@@ -97,36 +121,27 @@
 
     <!-- About -->
     <section class="section-padding" id="about">
-      <div class="container about-grid">
-        <div class="section-intro reveal">
+      <div class="container about-new-layout">
+        <div class="about-content-col reveal">
           <p class="eyebrow">About Our School</p>
-          <h2>A caring campus built for strong foundations and confident futures.</h2>
-          <p>
-            Trinity Public School offers a complete learning journey from Nursery to Class 12. We combine disciplined
-            academics with communication skills, sports, arts, technology, and values-based mentoring.
+          <h2 class="about-title">A caring campus built for strong foundations and confident futures.</h2>
+          <p class="about-desc">
+            Trinity Public School offers a <strong>complete learning journey</strong> from Nursery to Class 12. We
+            combine disciplined academics with communication skills, sports, arts, technology, and values-based
+            mentoring.
           </p>
+          <a href="achievements.html" class="btn-maroon-arrow reveal">
+            <span class="btn-icon">🏛️</span>
+            Explore Campus
+            <span class="btn-arrow">→</span>
+          </a>
         </div>
 
-        <div class="about-image reveal">
-          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85"
-            alt="Students learning in a classroom" />
+        <div class="about-image-col reveal">
+          <img src="images/ClassRoom.jpg" alt="Students learning in a classroom" />
         </div>
       </div>
 
-      <div class="container card-grid two-column">
-        <article class="info-card reveal">
-          <span class="card-number">01</span>
-          <h3>Mission</h3>
-          <p>To provide excellent school education through strong academics, discipline, creativity, compassion, and
-            individual attention.</p>
-        </article>
-        <article class="info-card reveal">
-          <span class="card-number">02</span>
-          <h3>Vision</h3>
-          <p>To develop confident learners who think clearly, act ethically, communicate well, and contribute
-            meaningfully to society.</p>
-        </article>
-      </div>
 
     </section>
 
@@ -175,6 +190,150 @@
                 tomorrow."</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faculty Section -->
+    <section class="section-padding faculty-section">
+      <div class="container">
+        <div class="section-intro centered reveal">
+          <p class="eyebrow">Our Faculty</p>
+          <h2>The mentors who inspire excellence.</h2>
+          <p>Our experienced educators are passionate about teaching, guiding, and helping students reach their full
+            potential.</p>
+        </div>
+
+        <div class="faculty-grid reveal">
+          <!-- Teacher 1 -->
+          <div class="faculty-card">
+            <div class="faculty-image">
+              <img src="https://images.unsplash.com/photo-1544168190-79c17527004f?auto=format&fit=crop&w=400&q=80"
+                alt="Mr. Rohit Verma">
+            </div>
+            <div class="faculty-info">
+              <h3>Mr. Rohit Verma</h3>
+              <p>MATHEMATICS</p>
+              <div class="faculty-social">
+                <span class="email-icon">✉️</span>
+              </div>
+            </div>
+          </div>
+          <!-- Teacher 2 -->
+          <div class="faculty-card">
+            <div class="faculty-image">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+                alt="Ms. Priya Mehta">
+            </div>
+            <div class="faculty-info">
+              <h3>Ms. Priya Mehta</h3>
+              <p>ENGLISH</p>
+              <div class="faculty-social">
+                <span class="email-icon">✉️</span>
+              </div>
+            </div>
+          </div>
+          <!-- Teacher 3 -->
+          <div class="faculty-card">
+            <div class="faculty-image">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80"
+                alt="Mr. Daniel Carter">
+            </div>
+            <div class="faculty-info">
+              <h3>Mr. Daniel Carter</h3>
+              <p>SCIENCE</p>
+              <div class="faculty-social">
+                <span class="email-icon">✉️</span>
+              </div>
+            </div>
+          </div>
+          <!-- Teacher 4 -->
+          <div class="faculty-card">
+            <div class="faculty-image">
+              <img src="https://images.unsplash.com/photo-1484863137850-59afccd0519e?auto=format&fit=crop&w=400&q=80"
+                alt="Mrs. Anjali Iyer">
+            </div>
+            <div class="faculty-info">
+              <h3>Mrs. Anjali Iyer</h3>
+              <p>SOCIAL STUDIES</p>
+              <div class="faculty-social">
+                <span class="email-icon">✉️</span>
+              </div>
+            </div>
+          </div>
+          <!-- Teacher 5 -->
+          <div class="faculty-card">
+            <div class="faculty-image">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+                alt="Mr. Arjun Lee">
+            </div>
+            <div class="faculty-info">
+              <h3>Mr. Arjun Lee</h3>
+              <p>ART & DESIGN</p>
+              <div class="faculty-social">
+                <span class="email-icon">✉️</span>
+              </div>
+            </div>
+          </div>
+          <!-- Teacher 6 -->
+          <div class="faculty-card">
+            <div class="faculty-image">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80"
+                alt="Ms. Laura Mitchell">
+            </div>
+            <div class="faculty-info">
+              <h3>Ms. Laura Mitchell</h3>
+              <p>PHYSICAL EDUCATION</p>
+              <div class="faculty-social">
+                <span class="email-icon">✉️</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="centered-btn-wrapper reveal">
+          <a href="#contact" class="btn-navy">MEET OUR FACULTY →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="section-padding" id="achievements">
+      <div class="container">
+        <div class="section-intro centered reveal">
+          <p class="eyebrow">Our Achievements</p>
+          <h2>Celebrating Excellence in Every Field.</h2>
+          <p>At Trinity Public School, we believe in the holistic development of our students, which is reflected in our
+            consistent success across academics, sports, and arts.</p>
+        </div>
+
+        <div class="achievement-grid">
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">🏆</div>
+            <h3>100% Board Success</h3>
+            <p>Consistent 100% pass rate in Class 10th and 12th Board examinations with numerous distinctions.</p>
+          </div>
+
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">🏀</div>
+            <h3>Sports Champions</h3>
+            <p>State-level champions in Basketball and Badminton for three consecutive years.</p>
+          </div>
+
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">🔬</div>
+            <h3>Innovation Award</h3>
+            <p>Winners of the National Level Young Scientists Innovation Hub for our sustainable energy projects.</p>
+          </div>
+
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">🎨</div>
+            <h3>Art & Culture</h3>
+            <p>Top honors in the State Inter-School Cultural Festival for excellence in Fine Arts and Music.</p>
+          </div>
+        </div>
+        <div class="centered reveal" style="margin-top: 4rem;">
+          <a href="achievements.html" class="btn btn-primary rounded-full">View All Achievements</a>
         </div>
       </div>
     </section>
@@ -235,27 +394,27 @@
       </div>
     </section>
 
-    <!-- Gallery -->
-    <section class="section-padding" id="gallery">
+    <!-- School Life / Events -->
+    <section class="section-padding bg-alt" id="school-life">
       <div class="container section-intro centered reveal">
-        <p class="eyebrow">Gallery</p>
-        <h2>Life at Trinity.</h2>
-        <p>Classrooms, sports, assemblies, labs, cultural events, and student activities.</p>
+        <p class="eyebrow">School Life</p>
+        <h2>Experience Beyond the Books.</h2>
+        <p>From sports competitions to cultural festivals, life at Trinity is vibrant, active, and full of
+          opportunities.</p>
       </div>
 
-      <div class="container gallery-grid">
-        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=85"
-          alt="Student reading in library" />
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85"
-          alt="Student using laptop" />
-        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=85"
-          alt="Students playing basketball" />
-        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=85"
-          alt="Students on campus" />
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=85"
-          alt="School activity session" />
-        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=900&q=85"
-          alt="Students studying together" />
+      <div class="container event-grid">
+        <article class="event-card reveal">
+          <div class="event-banner">
+            <img src="images/sports.jpg" alt="Students participating in sports activities" />
+          </div>
+          <div class="event-content">
+            <h3>Sports Week</h3>
+            <p>A week dedicated to sports, fitness, teamwork, competitions, and fun activities for students of all
+              grades.</p>
+            <a href="#contact" class="btn btn-primary rounded-full">Explore Event</a>
+          </div>
+        </article>
       </div>
     </section>
 

@@ -1,127 +1,163 @@
-// =========================================================
-// Trinity Public School Website
-// File purpose: dark mode, mobile menu, form feedback, reveals
-// =========================================================
+/**
+ * Trinity Public School - Core Website Scripts
+ * 
+ * Includes logic for:
+ * - Mobile Navigation & Overlay
+ * - Scroll Reveal Animations
+ * - Header Active State Management
+ * - Form Handling & Feedback
+ * - Swiper Hero Slider Initialization
+ */
 
-const body = document.body;
-const siteHeader = document.getElementById("siteHeader");
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
-const navLinks = document.querySelectorAll(".nav-menu a");
-const revealItems = document.querySelectorAll(".reveal");
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const siteHeader = document.getElementById("siteHeader");
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+  const navLinks = document.querySelectorAll(".nav-menu a");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const revealItems = document.querySelectorAll(".reveal");
 
-// ---------- Mobile menu ----------
-menuToggle.addEventListener("click", () => {
-  const isOpen = navMenu.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
+  /* ---------------------------------------------------------
+     1. MOBILE MENU LOGIC
+     --------------------------------------------------------- */
+  if (menuToggle && navMenu && menuOverlay) {
+    const toggleMenu = (forceClose = false) => {
+      const isOpen = forceClose ? false : !navMenu.classList.contains("open");
+      
+      navMenu.classList.toggle("open", isOpen);
+      menuToggle.classList.toggle("active", isOpen);
+      menuOverlay.classList.toggle("visible", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      
+      // Prevent scrolling when menu is open
+      body.style.overflow = isOpen ? "hidden" : "";
+    };
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-  });
-});
+    menuToggle.addEventListener("click", () => toggleMenu());
+    menuOverlay.addEventListener("click", () => toggleMenu(true));
+    
+    // Close menu when a link is clicked
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => toggleMenu(true));
+    });
+  }
 
-// ---------- Header active links ----------
-function updateHeaderState() {
-  let currentSection = null;
+  /* ---------------------------------------------------------
+     2. HEADER ACTIVE LINKS (ScrollSpy)
+     --------------------------------------------------------- */
+  const updateHeaderState = () => {
+    let currentSection = null;
 
-  navLinks.forEach((link) => {
-    const section = document.querySelector(link.getAttribute("href"));
-
-    if (section && section.offsetTop <= window.scrollY + 130) {
-      currentSection = section;
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.toggle("active", currentSection && link.getAttribute("href") === `#${currentSection.id}`);
-  });
-}
-
-window.addEventListener("scroll", updateHeaderState);
-updateHeaderState();
-
-// ---------- Scroll reveal animation ----------
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href.startsWith("#")) {
+        const section = document.querySelector(href);
+        if (section && section.offsetTop <= window.scrollY + 130) {
+          currentSection = section;
+        }
       }
     });
-  },
-  { threshold: 0.14 }
-);
 
-revealItems.forEach((item) => revealObserver.observe(item));
-
-// ---------- Simple form feedback ----------
-function handleFormSubmit(formId, messageId, successText) {
-  const form = document.getElementById(formId);
-  const message = document.getElementById(messageId);
-
-  if (!form || !message) return;
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    message.textContent = successText;
-    form.reset();
-  });
-}
-
-handleFormSubmit("admissionForm", "admissionMessage", "Thank you. Our admissions team will contact you soon.");
-handleFormSubmit("contactForm", "contactMessage", "Message sent. We will reply shortly.");
-
-// ---------- Typing Animation ----------
-function initTypingAnimation() {
-  const typingElements = document.querySelectorAll(".typing-text");
-
-  typingElements.forEach((el) => {
-    const text = el.textContent;
-    el.textContent = "";
-    let i = 0;
-
-    function type() {
-      if (i < text.length) {
-        el.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, 100);
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href.startsWith("#") && currentSection) {
+        link.classList.toggle("active", href === `#${currentSection.id}`);
       }
+    });
+  };
+
+  window.addEventListener("scroll", updateHeaderState);
+  updateHeaderState();
+
+  /* ---------------------------------------------------------
+     3. SCROLL REVEAL ANIMATION (Intersection Observer)
+     --------------------------------------------------------- */
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+
+  /* ---------------------------------------------------------
+     4. FORM HANDLING
+     --------------------------------------------------------- */
+  const handleFormSubmit = (formId, messageId, successText) => {
+    const form = document.getElementById(formId);
+    const message = document.getElementById(messageId);
+
+    if (form && message) {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        message.textContent = successText;
+        message.classList.add("success");
+        form.reset();
+      });
     }
+  };
 
-    setTimeout(type, 1000);
-  });
-}
+  handleFormSubmit("admissionForm", "admissionMessage", "Thank you! Our admissions team will contact you soon.");
+  handleFormSubmit("contactForm", "contactMessage", "Message sent successfully. We will reply shortly.");
 
-window.addEventListener("load", initTypingAnimation);
+  /* ---------------------------------------------------------
+     5. TYPING ANIMATION
+     --------------------------------------------------------- */
+  const initTypingAnimation = () => {
+    const typingElements = document.querySelectorAll(".typing-text");
 
-// ---------- Hero Slider (Swiper) ----------
-const heroSwiper = new Swiper(".hero-slider", {
-  loop: true,
-  speed: 1000,
-  effect: "fade",
-  fadeEffect: {
-    crossFade: true,
-  },
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
-  simulateTouch: false, // Allows text selection with mouse without swiping
-  grabCursor: false, // Removed grab cursor as it suggests dragging which interferes with selection
-  keyboard: {
-    enabled: true,
-    onlyInViewport: true,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
+    typingElements.forEach((el) => {
+      const text = el.textContent;
+      el.textContent = "";
+      let i = 0;
+
+      const type = () => {
+        if (i < text.length) {
+          el.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, 100);
+        }
+      };
+
+      setTimeout(type, 1000);
+    });
+  };
+
+  initTypingAnimation();
+
+  /* ---------------------------------------------------------
+     6. HERO SLIDER (Swiper.js)
+     --------------------------------------------------------- */
+  if (document.querySelector(".hero-slider")) {
+    new Swiper(".hero-slider", {
+      loop: true,
+      speed: 1000,
+      effect: "fade",
+      fadeEffect: { crossFade: true },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      simulateTouch: false,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  }
 });
