@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports Week 2025 Gallery | Trinity Public School</title>
+    <meta name="description" content="Relive the best moments of Trinity Public School Sports Week 2025. Explore event galleries, ceremony highlights, and champion memories." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared Style -->
+    <link rel="stylesheet" href="../../style.css" />
+
+    <style>
+        :root {
+            --gallery-bg: #ffffff;
+            --gallery-card-bg: #ffffff;
+            --gallery-primary: #800000;
+            --gallery-accent: #ffcc00;
+        }
+
+        body {
+            background-color: var(--gallery-bg);
+        }
+
+        /* Hero Section */
+        .gallery-hero {
+            background: linear-gradient(rgba(128, 0, 0, 0.85), rgba(128, 0, 0, 0.95)), url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .gallery-hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Event Sections */
+        .event-section {
+            padding: 80px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .event-header {
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .event-title-box h2 {
+            font-size: 2.2rem;
+            color: var(--gallery-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .event-title-box p {
+            color: #666;
+            max-width: 600px;
+        }
+
+        /* Grid Gallery */
+        .gallery-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item-premium {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            cursor: pointer;
+            background: #eee;
+        }
+
+        .gallery-item-premium img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .gallery-item-premium:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item-premium:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .view-icon {
+            color: white;
+            font-size: 1.5rem;
+            background: rgba(255,255,255,0.2);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .lightbox-btn {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-btn:hover {
+            background: rgba(255,255,255,0.2);
+            color: var(--gallery-accent);
+        }
+
+        .lightbox-prev { margin-left: -80px; }
+        .lightbox-next { margin-right: -80px; }
+
+        .lightbox-actions {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .lightbox-prev { margin-left: -20px; }
+            .lightbox-next { margin-right: -20px; }
+        }
+
+        @media (max-width: 768px) {
+            .event-header {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+            .lightbox-nav {
+                top: auto;
+                bottom: -80px;
+                transform: none;
+                justify-content: center;
+                gap: 2rem;
+            }
+            .lightbox-prev, .lightbox-next { margin: 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-flex-layout">
+            <a class="brand left-aligned-brand" href="../../index.html">
+                <img src="../../images/logo.png" alt="Trinity Logo" class="brand-img" />
+                <div class="brand-text">
+                    <div class="brand-title">
+                        <strong>Trinity Public School</strong>
+                        <span class="estd-badge">ESTD 1998</span>
+                    </div>
+                    <small class="brand-motto">Aim and Attain The Greatest.</small>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="../../index.html">Home</a>
+                <a href="../../achievements.html">Achievements</a>
+                <a href="../../ExploreCampus.html">Explore Campus</a>
+                <a href="../SportsWeek.html" class="active">Sports Week</a>
+                <a href="../../index.html#contact">Contact</a>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="gallery-hero">
+            <div class="container">
+                <p class="eyebrow" style="color: var(--gallery-accent);">Event Highlights</p>
+                <h1>Sports Week 2025</h1>
+                <p>A comprehensive collection of every thrilling moment, victory, and celebration from our annual sports meet.</p>
+            </div>
+        </section>
+
+        <!-- Consolidated Gallery Section -->
+        <section class="event-section">
+            <div class="container">
+                <div class="event-header reveal">
+                    <div class="event-title-box">
+                        <h2>All Memories</h2>
+                        <p>Explore the complete visual journey of Sports Week 2025 in one place.</p>
+                    </div>
+                    <a href="https://drive.google.com" target="_blank" class="btn btn-secondary rounded-full">View Full Google Drive Album</a>
+                </div>
+                
+                <div class="gallery-grid-modern">
+                    <!-- Image 1 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(0)">
+                        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&q=80" alt="Sports 1" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(1)">
+                        <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80" alt="Sports 2" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(2)">
+                        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=600&q=80" alt="Sports 3" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                    <!-- Image 4 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(3)">
+                        <img src="https://images.unsplash.com/photo-1505232987216-2fd39801865a?auto=format&fit=crop&w=600&q=80" alt="Sports 4" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                    <!-- Image 5 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(4)">
+                        <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=600&q=80" alt="Sports 5" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                    <!-- Image 6 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(5)">
+                        <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&w=600&q=80" alt="Sports 6" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                    <!-- Image 7 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(6)">
+                        <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=600&q=80" alt="Sports 7" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                    <!-- Image 8 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(7)">
+                        <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=600&q=80" alt="Sports 8" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                    <!-- Image 9 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(8)">
+                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=80" alt="Sports 9" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                    <!-- Image 10 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(9)">
+                        <img src="https://images.unsplash.com/photo-1518005020250-675921e428f1?auto=format&fit=crop&w=600&q=80" alt="Sports 10" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                    <!-- Image 11 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(10)">
+                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&q=80" alt="Sports 11" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                    <!-- Image 12 -->
+                    <div class="gallery-item-premium reveal" onclick="openLightbox(11)">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80" alt="Sports 12" loading="lazy">
+                        <div class="gallery-overlay"><div class="view-icon">🔍</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <div class="lightbox-content">
+            <img src="" alt="Lightbox" class="lightbox-image" id="lightboxImg">
+            <div class="lightbox-nav">
+                <button class="lightbox-btn lightbox-prev" onclick="changeImage(-1)">❮</button>
+                <button class="lightbox-btn lightbox-next" onclick="changeImage(1)">❯</button>
+            </div>
+            <div class="lightbox-actions">
+                <a href="#" id="downloadBtn" download class="btn btn-primary rounded-full">Download Image</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <a class="brand footer-brand" href="../../index.html">
+                    <img src="../../images/logo.png" alt="Trinity Logo" class="brand-img" />
+                    <div class="brand-text">
+                        <strong>Trinity Public School</strong>
+                        <small>Aim and Attain The Greatest.</small>
+                    </div>
+                </a>
+                <p>Nurturing champions since 1998.</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="../../index.html">Home</a>
+                <a href="../../achievements.html">Achievements</a>
+                <a href="../../ExploreCampus.html">Explore Campus</a>
+                <a href="../SportsWeek.html">Sports Week</a>
+            </div>
+            <div>
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#">FB</a><a href="#">IG</a><a href="#">YT</a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">© 2026 Trinity Public School. All rights reserved.</p>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script>
+        let currentIndex = 0;
+        const allImages = [
+            "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1505232987216-2fd39801865a?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1518005020250-675921e428f1?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80"
+        ];
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function changeImage(dir) {
+            currentIndex += dir;
+            if (currentIndex < 0) currentIndex = allImages.length - 1;
+            if (currentIndex >= allImages.length) currentIndex = 0;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const imgSrc = allImages[currentIndex];
+            lightboxImg.src = imgSrc;
+            downloadBtn.href = imgSrc;
+        }
+
+        // Close on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Reveal logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOnScroll = () => {
+                reveals.forEach(el => {
+                    const windowHeight = window.innerHeight;
+                    const revealTop = el.getBoundingClientRect().top;
+                    if (revealTop < windowHeight - 150) el.classList.add('active');
+                });
+            };
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        });
+    </script>
+</body>
+
+</html>

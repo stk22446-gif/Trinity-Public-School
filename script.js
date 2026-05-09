@@ -202,4 +202,37 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  /* ---------------------------------------------------------
+     7. COUNTER ANIMATION (STATS BANNER)
+     --------------------------------------------------------- */
+  const counters = document.querySelectorAll(".counter");
+  const counterSpeed = 200;
+
+  const startCounter = (el) => {
+    const target = +el.getAttribute("data-target");
+    const count = +el.innerText;
+    const increment = target / counterSpeed;
+
+    if (count < target) {
+      el.innerText = Math.ceil(count + increment);
+      setTimeout(() => startCounter(el), 15);
+    } else {
+      el.innerText = target;
+    }
+  };
+
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 1.0 }
+  );
+
+  counters.forEach((counter) => counterObserver.observe(counter));
 });

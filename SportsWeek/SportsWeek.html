@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports Week | Trinity Public School</title>
+    <meta name="description"
+        content="Explore the legacy of Trinity Public School Sports Week. Highlights, galleries, and achievements from our annual sporting events." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Shared Style -->
+    <link rel="stylesheet" href="../style.css" />
+
+    <!-- Page Specific Styles -->
+    <style>
+        :root {
+            --sports-primary: #800000;
+            --sports-accent: #ffcc00;
+            --sports-text-light: #ffffff;
+            --sports-bg-alt: #f8f9fa;
+        }
+
+        /* Hero Section */
+        .sports-hero {
+            height: 80vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .sports-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            /* Darker overlay for text legibility */
+        }
+
+        /* Swiper Navigation Custom Styles */
+        .sports-hero-next,
+        .sports-hero-prev {
+            color: white !important;
+            background: rgba(128, 0, 0, 0.4);
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+        }
+
+        .sports-hero-next:after,
+        .sports-hero-prev:after {
+            font-size: 1.2rem !important;
+            font-weight: 900;
+        }
+
+        .sports-hero-pagination .swiper-pagination-bullet {
+            background: white !important;
+            opacity: 0.6;
+        }
+
+        .sports-hero-pagination .swiper-pagination-bullet-active {
+            background: var(--sports-accent) !important;
+            opacity: 1;
+        }
+
+        @keyframes heroZoom {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        .sports-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 100px 2rem 2rem;
+            /* Added top padding to clear header */
+        }
+
+        .sports-hero h1 {
+            font-size: clamp(2rem, 7vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sports-primary);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--sports-primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* Sports Featured */
+        .sports-featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .sport-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding-bottom: 1.5rem;
+        }
+
+        .sport-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sport-icon-box {
+            height: 200px;
+            background: #eee;
+            overflow: hidden;
+        }
+
+        .sport-icon-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .sport-card:hover .sport-icon-box img {
+            transform: scale(1.1);
+        }
+
+        .sport-card h3 {
+            margin-top: 1.5rem;
+            color: var(--sports-primary);
+            font-weight: 700;
+        }
+
+        /* Archive Section */
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .archive-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .archive-img {
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .archive-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .archive-body {
+            padding: 2rem;
+        }
+
+        .archive-year {
+            font-size: 0.9rem;
+            color: var(--sports-primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .archive-body h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            grid-auto-rows: 250px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Achievement Section */
+        .achievement-row {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .achievement-icon {
+            font-size: 4rem;
+            color: var(--sports-accent);
+        }
+
+        /* CTA Section */
+        .maroon-cta {
+            background: var(--sports-primary);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .maroon-cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .achievement-row {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header (Same as main) -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-flex-layout">
+            <a class="brand left-aligned-brand" href="../index.html">
+                <img src="../images/logo.png" alt="Trinity Logo" class="brand-img" />
+                <div class="brand-text">
+                    <div class="brand-title">
+                        <strong>Trinity Public School</strong>
+                        <span class="estd-badge">ESTD 1998</span>
+                    </div>
+                    <small class="brand-motto">Aim and Attain The Greatest.</small>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="../index.html">Home</a>
+                <a href="../achievements.html">Achievements</a>
+                <a href="../ExploreCampus.html">Explore Campus</a>
+                <a href="SportsWeek.html" class="active">Sports Week</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <main>
+        <!-- Section 1: Hero Section (Slider) -->
+        <section class="sports-hero-slider swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide sports-hero">
+                    <div class="sports-hero-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1920&q=80');">
+                    </div>
+                    <div class="container">
+                        <div class="sports-hero-content reveal">
+                            <h1>Trinity Public School<br><span class="text-accent">Sports Week</span></h1>
+                            <p class="hero-subtitle">Celebrating teamwork, discipline, leadership, and achievement.</p>
+                            <a href="#archive" class="btn btn-primary rounded-full">Explore Memories</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide sports-hero">
+                    <div class="sports-hero-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1551952237-954a0e68786c?auto=format&fit=crop&w=1920&q=80');">
+                    </div>
+                    <div class="container">
+                        <div class="sports-hero-content">
+                            <h1>Unleash the<br><span class="text-accent">Champion Within</span></h1>
+                            <p class="hero-subtitle">Pushing boundaries and setting new records every year.</p>
+                            <a href="#archive" class="btn btn-primary rounded-full">View Highlights</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide sports-hero">
+                    <div class="sports-hero-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&w=1920&q=80');">
+                    </div>
+                    <div class="container">
+                        <div class="sports-hero-content">
+                            <h1>Legacy of<br><span class="text-accent">Sportsmanship</span></h1>
+                            <p class="hero-subtitle">Where every participant is a winner in spirit.</p>
+                            <a href="#archive" class="btn btn-primary rounded-full">Archive Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Extra Slide 4 for future replacement -->
+                <div class="swiper-slide sports-hero">
+                    <div class="sports-hero-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1518005020250-675921e428f1?auto=format&fit=crop&w=1920&q=80');">
+                    </div>
+                    <div class="container">
+                        <div class="sports-hero-content">
+                            <h1>Excellence in<br><span class="text-accent">Athletics</span></h1>
+                            <p class="hero-subtitle">Celebrating speed, strength, and determination.</p>
+                            <a href="#archive" class="btn btn-primary rounded-full">View Athletics</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Extra Slide 5 for future replacement -->
+                <div class="swiper-slide sports-hero">
+                    <div class="sports-hero-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1920&q=80');">
+                    </div>
+                    <div class="container">
+                        <div class="sports-hero-content">
+                            <h1>Team Spirit &<br><span class="text-accent">Unity</span></h1>
+                            <p class="hero-subtitle">Stronger together, on and off the field.</p>
+                            <a href="#archive" class="btn btn-primary rounded-full">Explore Teams</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Extra Slide 6 for future replacement -->
+                <div class="swiper-slide sports-hero">
+                    <div class="sports-hero-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1505232987216-2fd39801865a?auto=format&fit=crop&w=1920&q=80');">
+                    </div>
+                    <div class="container">
+                        <div class="sports-hero-content">
+                            <h1>Annual Sports<br><span class="text-accent">Highlights</span></h1>
+                            <p class="hero-subtitle">Capturing the most memorable moments of the year.</p>
+                            <a href="#archive" class="btn btn-primary rounded-full">Open Highlights</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Navigation -->
+            <div class="swiper-pagination sports-hero-pagination"></div>
+            <div class="swiper-button-next sports-hero-next"></div>
+            <div class="swiper-button-prev sports-hero-prev"></div>
+        </section>
+
+        <!-- Section 2: Quick Stats -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card reveal">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Participants</span>
+                    </div>
+                    <div class="stat-card reveal" style="transition-delay: 0.1s;">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Events</span>
+                    </div>
+                    <div class="stat-card reveal" style="transition-delay: 0.2s;">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Photos</span>
+                    </div>
+                    <div class="stat-card reveal" style="transition-delay: 0.3s;">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Years of Memories</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Featured Sports -->
+        <section class="section-padding bg-alt">
+            <div class="container">
+                <div class="section-intro centered reveal">
+                    <p class="eyebrow">Highlights</p>
+                    <h2>Major Sporting Events</h2>
+                </div>
+                <div class="sports-featured-grid">
+                    <div class="sport-card reveal">
+                        <div class="sport-icon-box">
+                            <img src="https://images.unsplash.com/photo-1551952237-954a0e68786c?auto=format&fit=crop&w=400&q=80"
+                                alt="Football" />
+                        </div>
+                        <h3>Football</h3>
+                    </div>
+                    <div class="sport-card reveal">
+                        <div class="sport-icon-box">
+                            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=400&q=80"
+                                alt="Basketball" />
+                        </div>
+                        <h3>Basketball</h3>
+                    </div>
+                    <div class="sport-card reveal">
+                        <div class="sport-icon-box">
+                            <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=400&q=80"
+                                alt="Athletics" />
+                        </div>
+                        <h3>Athletics</h3>
+                    </div>
+                    <div class="sport-card reveal">
+                        <div class="sport-icon-box">
+                            <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=400&q=80"
+                                alt="Relay Race" />
+                        </div>
+                        <h3>Relay Race</h3>
+                    </div>
+                    <div class="sport-card reveal">
+                        <div class="sport-icon-box">
+                            <img src="https://images.unsplash.com/photo-1505232987216-2fd39801865a?auto=format&fit=crop&w=400&q=80"
+                                alt="March Past" />
+                        </div>
+                        <h3>March Past</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Sports Week Archive -->
+        <section class="section-padding" id="archive">
+            <div class="container">
+                <div class="section-intro centered reveal">
+                    <p class="eyebrow">The Journey</p>
+                    <h2>Sports Week Archive</h2>
+                </div>
+                <div class="archive-grid">
+                    <div class="archive-card reveal">
+                        <div class="archive-img">
+                            <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=600&q=80"
+                                alt="2026" />
+                        </div>
+                        <div class="archive-body">
+                            <span class="archive-year">Coming Soon</span>
+                            <h3>Sports Week 2026</h3>
+                            <p>Register and prepare for the biggest sporting event of the year.</p>
+                            <a href="#" class="btn btn-secondary rounded-full"
+                                style="width: 100%; margin-top: 1rem;">View Details</a>
+                        </div>
+                    </div>
+                    <div class="archive-card reveal">
+                        <div class="archive-img">
+                            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=80"
+                                alt="2025" />
+                        </div>
+                        <div class="archive-body">
+                            <span class="archive-year">Active</span>
+                            <h3>Sports Week 2025</h3>
+                            <p>Relive the adrenaline and passion of last year's champions.</p>
+                            <a href="SportsWeek2025/SportsWeek2025.html" class="btn btn-primary rounded-full"
+                                style="width: 100%; margin-top: 1rem;">View Gallery</a>
+                        </div>
+                    </div>
+                    <div class="archive-card reveal">
+                        <div class="archive-img">
+                            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80"
+                                alt="2024" />
+                        </div>
+                        <div class="archive-body">
+                            <span class="archive-year">Classic</span>
+                            <h3>Sports Week 2024</h3>
+                            <p>Celebrating the milestones and records set in 2024.</p>
+                            <a href="#" class="btn btn-secondary rounded-full"
+                                style="width: 100%; margin-top: 1rem;">View Gallery</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Visual Memories -->
+        <section class="section-padding bg-alt">
+            <div class="container">
+                <div class="section-intro centered reveal">
+                    <p class="eyebrow">Moments</p>
+                    <h2>Visual Memories</h2>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 1" /></div>
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 2" /></div>
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 3" /></div>
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 4" /></div>
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 5" /></div>
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 6" /></div>
+                    <!-- Extra slots for future replacement -->
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1518005020250-675921e428f1?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 7" /></div>
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 8" /></div>
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 9" /></div>
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 10" /></div>
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 11" /></div>
+                    <div class="gallery-item reveal"><img
+                            src="https://images.unsplash.com/photo-1505232987216-2fd39801865a?auto=format&fit=crop&w=500&q=80"
+                            alt="Memory 12" /></div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Section 7: Final CTA -->
+        <section class="maroon-cta">
+            <div class="container reveal">
+                <h2>Relive the Best Moments of<br>Trinity Sports Week</h2>
+                <a href="#archive" class="btn btn-secondary rounded-full">Open Full Archive</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Same as main) -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <a class="brand footer-brand" href="../index.html">
+                    <img src="../images/logo.png" alt="Trinity Logo" class="brand-img" />
+                    <div class="brand-text">
+                        <strong>Trinity Public School</strong>
+                        <small>Aim and Attain The Greatest.</small>
+                    </div>
+                </a>
+                <p>Nurturing champions since 1998.</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="../index.html">Home</a>
+                <a href="../achievements.html">Achievements</a>
+                <a href="../ExploreCampus.html">Explore Campus</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <div>
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#">FB</a><a href="#">IG</a><a href="#">YT</a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">© 2026 Trinity Public School. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hero Slider
+            new Swiper(".sports-hero-slider", {
+                effect: "fade",
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".sports-hero-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".sports-hero-next",
+                    prevEl: ".sports-hero-prev",
+                },
+            });
+
+            // Scroll reveal animation
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOnScroll = () => {
+                reveals.forEach(el => {
+                    const windowHeight = window.innerHeight;
+                    const revealTop = el.getBoundingClientRect().top;
+                    const revealPoint = 150;
+                    if (revealTop < windowHeight - revealPoint) {
+                        el.classList.add('active');
+                    }
+                });
+            };
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Initial check
+        });
+    </script>
+</body>
+
+</html>

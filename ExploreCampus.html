@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Campus | Trinity Public School</title>
+    <meta name="description"
+        content="Take a virtual tour of Trinity Public School. Explore our smart classrooms, science labs, sports facilities, and vibrant campus life." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png?v=2" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-flex-layout">
+            <a class="brand left-aligned-brand" href="index.html" aria-label="Trinity Public School home">
+                <img src="images/logo.png" alt="Trinity Public School Logo" class="brand-img" />
+                <div class="brand-text">
+                    <div class="brand-title">
+                        <strong>Trinity Public School</strong>
+                        <span class="estd-badge">ESTD 1998</span>
+                    </div>
+                    <small class="brand-motto">Aim and Attain The Greatest.</small>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="achievements.html">Achievements</a>
+                <a href="index.html#academics">Academics</a>
+                <a href="#school-life">School Life</a>
+                <a href="index.html#admissions">Admissions</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <main>
+        <!-- Section 1: Hero Section -->
+        <section class="campus-hero reveal">
+            <div class="hero-bg" style="background-image: url('images/campus.jpg');"></div>
+            <div class="container">
+                <div class="campus-hero-content">
+                    <h1>Explore Our Campus</h1>
+                    <p>Where Learning Meets Inspiration</p>
+                    <a href="index.html#contact" class="btn btn-primary rounded-full">Book a Campus Visit</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Trinity Family -->
+        <section class="trinity-family section-padding">
+            <div class="container about-grid-new">
+                <div class="about-image-col reveal">
+                    <img src="images/trinity_family.jpg" alt="Trinity Family Activities" class="about-image" />
+                </div>
+                <div class="about-content-col reveal">
+                    <p class="eyebrow">School Culture</p>
+                    <h2>The Trinity Family</h2>
+                    <p class="section-desc">
+                        At Trinity Public School, we believe education is a partnership between teachers, students, and
+                        parents. Our culture is built on mutual respect, continuous support, and a shared passion for
+                        excellence.
+                    </p>
+
+                    <div class="mission-vision-grid">
+                        <div class="mv-card">
+                            <h3>Our Vision</h3>
+                            <p>To be a center of excellence that nurtures innovative thinkers and compassionate leaders
+                                for a global society.</p>
+                        </div>
+                        <div class="mv-card">
+                            <h3>Our Mission</h3>
+                            <p>To provide a safe, stimulating environment that balances academic rigor with creative
+                                exploration and character building.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Our Faculty -->
+        <section class="faculty-section section-padding">
+            <div class="container">
+                <div class="section-intro centered reveal">
+                    <p class="eyebrow">Expert Educators</p>
+                    <h2>Our Dedicated Faculty</h2>
+                    <p>Meet the passionate mentors who guide our students toward excellence every day.</p>
+                </div>
+                <div class="faculty-slider swiper reveal">
+                    <div class="swiper-wrapper">
+                        <!-- Faculty Member 1 -->
+                        <div class="swiper-slide faculty-card">
+                            <div class="faculty-image">
+                                <img src="https://images.unsplash.com/photo-1544717297-fa154da09f9b?auto=format&fit=crop&w=300&q=80" alt="Faculty Member">
+                            </div>
+                            <div class="faculty-info">
+                                <h3>Dr. Sarah Jenkins</h3>
+                                <p>Senior Physics Faculty</p>
+                            </div>
+                        </div>
+                        <!-- Faculty Member 2 -->
+                        <div class="swiper-slide faculty-card">
+                            <div class="faculty-image">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Faculty Member">
+                            </div>
+                            <div class="faculty-info">
+                                <h3>Mrs. Anjali Sharma</h3>
+                                <p>Mathematics HOD</p>
+                            </div>
+                        </div>
+                        <!-- Faculty Member 3 -->
+                        <div class="swiper-slide faculty-card">
+                            <div class="faculty-image">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80" alt="Faculty Member">
+                            </div>
+                            <div class="faculty-info">
+                                <h3>Ms. Emily Chen</h3>
+                                <p>English Literature</p>
+                            </div>
+                        </div>
+                        <!-- Faculty Member 4 -->
+                        <div class="swiper-slide faculty-card">
+                            <div class="faculty-image">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Faculty Member">
+                            </div>
+                            <div class="faculty-info">
+                                <h3>Mr. Robert Miller</h3>
+                                <p>Chemistry Specialist</p>
+                            </div>
+                        </div>
+                        <!-- Faculty Member 5 -->
+                        <div class="swiper-slide faculty-card">
+                            <div class="faculty-image">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" alt="Faculty Member">
+                            </div>
+                            <div class="faculty-info">
+                                <h3>Mrs. Priya Das</h3>
+                                <p>Biology Faculty</p>
+                            </div>
+                        </div>
+                        <!-- Faculty Member 6 -->
+                        <div class="swiper-slide faculty-card">
+                            <div class="faculty-image">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="Faculty Member">
+                            </div>
+                            <div class="faculty-info">
+                                <h3>Mr. David Wilson</h3>
+                                <p>Computer Science</p>
+                            </div>
+                        </div>
+                        <!-- Extra slot 7 -->
+                        <div class="swiper-slide faculty-card">
+                            <div class="faculty-image">
+                                <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=300&q=80" alt="Faculty Member">
+                            </div>
+                            <div class="faculty-info">
+                                <h3>Mr. James Taylor</h3>
+                                <p>Physical Education</p>
+                            </div>
+                        </div>
+                        <!-- Extra slot 8 -->
+                        <div class="swiper-slide faculty-card">
+                            <div class="faculty-image">
+                                <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=300&q=80" alt="Faculty Member">
+                            </div>
+                            <div class="faculty-info">
+                                <h3>Ms. Sophie Reed</h3>
+                                <p>Fine Arts Faculty</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination faculty-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Smart Classrooms -->
+        <section class="smart-classrooms section-padding bg-alt">
+            <div class="container">
+                <div class="section-intro centered reveal">
+                    <p class="eyebrow">Learning Environment</p>
+                    <h2>Smart Classrooms</h2>
+                    <p>Equipping our students with 21st-century tools for a modern world.</p>
+                </div>
+
+                <div class="feature-grid two-column">
+                    <div class="feature-card reveal">
+                        <div class="feature-img">
+                            <img src="images/smart_classroom.jpg" alt="Smart Boards" />
+                        </div>
+                        <div class="feature-info">
+                            <h3>Smart Boards</h3>
+                            <p>Interactive digital displays that make every lesson engaging and visual.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-img">
+                            <img src="images/interactive_learning.jpg" alt="Interactive Learning" />
+                        </div>
+                        <div class="feature-info">
+                            <h3>Interactive Learning</h3>
+                            <p>Collaborative tools that encourage students to participate and think critically.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-img">
+                            <img src="images/disciplined_environment.jpg" alt="Disciplined Environment" />
+                        </div>
+                        <div class="feature-info">
+                            <h3>Disciplined Environment</h3>
+                            <p>A focused atmosphere that prioritizes respect, order, and academic growth.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-img">
+                            <img src="images/digital_education.jpg" alt="Digital Education" />
+                        </div>
+                        <div class="feature-info">
+                            <h3>Digital Education</h3>
+                            <p>Integration of online resources and digital literacy into the daily curriculum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Science & Computer Labs -->
+        <section class="school-labs section-padding">
+            <div class="container">
+                <div class="section-intro centered reveal">
+                    <p class="eyebrow">Innovation Hubs</p>
+                    <h2>Science Labs</h2>
+                </div>
+
+                <div class="lab-grid two-column">
+                    <div class="lab-card reveal">
+                        <div class="lab-img">
+                            <img src="images/physics_lab.jpg" alt="Physics Lab" />
+                        </div>
+                        <div class="lab-info">
+                            <h3>Physics Lab</h3>
+                            <p>Advanced equipment for exploring mechanics, optics, and electronics through practical
+                                experiments.</p>
+                        </div>
+                    </div>
+                    <div class="lab-card reveal">
+                        <div class="lab-img">
+                            <img src="images/chemistry_lab.jpg" alt="Chemistry Lab" />
+                        </div>
+                        <div class="lab-info">
+                            <h3>Chemistry Lab</h3>
+                            <p>Fully equipped lab for chemical analysis and experiments in a safe, supervised
+                                environment.</p>
+                        </div>
+                    </div>
+                    <div class="lab-card reveal">
+                        <div class="lab-img">
+                            <img src="images/biology_lab.jpg" alt="Biology Lab" />
+                        </div>
+                        <div class="lab-info">
+                            <h3>Biology Lab</h3>
+                            <p>Modern microscopes and specimens for studying the wonders of the natural world.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Sports & Activities -->
+        <section class="sports-activities section-padding bg-alt">
+            <div class="container">
+                <div class="section-intro centered reveal">
+                    <p class="eyebrow">Beyond Academics</p>
+                    <h2>Sports & Activities</h2>
+                </div>
+
+                <div class="activity-slider swiper reveal">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide activity-card">
+                            <img src="images/Sports.jpg" alt="Football" />
+                            <div class="activity-info">
+                                <h3>Football & Athletics</h3>
+                                <p>Developing teamwork and physical endurance on the field.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide activity-card">
+                            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&q=80"
+                                alt="Basketball" />
+                            <div class="activity-info">
+                                <h3>Basketball</h3>
+                                <p>Training students in strategy, agility, and sportsmanship.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide activity-card">
+                            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=600&q=80"
+                                alt="Music" />
+                            <div class="activity-info">
+                                <h3>Music & Fine Arts</h3>
+                                <p>Unlocking creativity through instruments, vocals, and painting.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide activity-card">
+                            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80"
+                                alt="Dance" />
+                            <div class="activity-info">
+                                <h3>Dance & Culture</h3>
+                                <p>Celebrating traditions and expression through movement.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Library & Learning Spaces -->
+        <section class="library-section section-padding">
+            <div class="container about-grid-new">
+                <div class="about-content-col reveal">
+                    <p class="eyebrow">Knowledge Center</p>
+                    <h2>Library & Learning Spaces</h2>
+                    <p>Our library is a quiet sanctuary for students to dive into literature, conduct research, or enjoy
+                        a moment of peaceful reading. With thousands of books and digital resources, it's the heart of
+                        our intellectual community.</p>
+                    <ul class="facility-list">
+                        <li>Modern e-Library resources</li>
+                        <li>Dedicated quiet study zones</li>
+                        <li>Extensive collection of global literature</li>
+                        <li>Collaborative project areas</li>
+                    </ul>
+                </div>
+                <div class="about-image-col reveal">
+                    <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80"
+                        alt="School Library" class="about-image" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Campus Gallery -->
+        <section class="campus-gallery section-padding bg-alt">
+            <div class="container">
+                <div class="section-intro centered reveal">
+                    <p class="eyebrow">Visual Tour</p>
+                    <h2>Campus Gallery</h2>
+                </div>
+
+                <!-- 3x2 Grid Slider -->
+                <div class="gallery-wrapper relative reveal">
+                    <div class="gallery-slider swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="gallery-grid">
+                                    <div class="gallery-item"><img src="images/slide1.jpg" alt="Campus 1" /></div>
+                                    <div class="gallery-item"><img src="images/ClassRoom.jpg" alt="Campus 2" /></div>
+                                    <div class="gallery-item"><img src="images/science_lab.jpg" alt="Campus 3" /></div>
+                                    <div class="gallery-item"><img src="images/SportsCard.jpg" alt="Campus 4" /></div>
+                                    <div class="gallery-item"><img src="images/slide3.jpg" alt="Campus 5" /></div>
+                                    <div class="gallery-item"><img src="images/slide4.jpg" alt="Campus 6" /></div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="gallery-grid">
+                                    <div class="gallery-item"><img
+                                            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80"
+                                            alt="Campus 7" /></div>
+                                    <div class="gallery-item"><img
+                                            src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&w=800&q=80"
+                                            alt="Campus 8" /></div>
+                                    <div class="gallery-item"><img
+                                            src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80"
+                                            alt="Campus 9" /></div>
+                                    <div class="gallery-item"><img
+                                            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
+                                            alt="Campus 10" /></div>
+                                    <div class="gallery-item"><img
+                                            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80"
+                                            alt="Campus 11" /></div>
+                                    <div class="gallery-item"><img
+                                            src="https://images.unsplash.com/photo-1577891729319-f69bc39fe729?auto=format&fit=crop&w=800&q=80"
+                                            alt="Campus 12" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Arrows and Pagination outside Swiper to avoid clipping -->
+                    <div class="swiper-pagination gallery-pagination"></div>
+                    <div class="swiper-button-next gallery-next"></div>
+                    <div class="swiper-button-prev gallery-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Safety & Transport -->
+        <section class="safety-transport section-padding">
+            <div class="container">
+                <div class="section-intro centered reveal">
+                    <p class="eyebrow">Our Priority</p>
+                    <h2>Safety & Transport</h2>
+                </div>
+
+                <div class="safety-grid four-column">
+                    <div class="safety-card reveal">
+                        <div class="safety-icon">📹</div>
+                        <h3>CCTV Monitoring</h3>
+                        <p>24/7 high-definition surveillance across the entire campus for maximum security.</p>
+                    </div>
+                    <div class="safety-card reveal">
+                        <div class="safety-icon">🛡️</div>
+                        <h3>Safe Campus</h3>
+                        <p>Strict entry protocols and trained security personnel ensuring a protected environment.</p>
+                    </div>
+                    <div class="safety-card reveal">
+                        <div class="safety-icon">👩‍⚕️</div>
+                        <h3>Trained Staff</h3>
+                        <p>First-aid certified staff and an on-campus medical room for immediate care.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Admissions CTA -->
+        <section class="admissions-cta section-padding">
+            <div class="container centered reveal">
+                <h2>Admissions Open 2026–2027</h2>
+                <p>Join the Trinity family and start your journey towards excellence today.</p>
+                <a href="index.html#contact" class="btn btn-secondary rounded-full">Apply Now</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Gallery Modal (LightBox) -->
+    <div class="gallery-modal" id="galleryModal">
+        <span class="modal-close">&times;</span>
+        <span class="modal-arrow prev" id="modalPrev">&#10094;</span>
+        <span class="modal-arrow next" id="modalNext">&#10095;</span>
+
+        <div class="modal-wrapper">
+            <img class="modal-content" id="modalImg">
+            <div class="modal-controls">
+                <div class="modal-caption" id="modalCaption"></div>
+                <a href="#" class="download-btn" id="downloadBtn" download>
+                    <span>Download Image</span>
+                    <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <a class="brand footer-brand" href="index.html">
+                    <img src="images/logo.png" alt="Trinity Public School Logo" class="brand-img" />
+                    <div class="brand-text">
+                        <strong>Trinity Public School</strong>
+                        <small>Aim and Attain The Greatest</small>
+                    </div>
+                </a>
+                <p>A premium school environment for students from Nursery to Class 12.</p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <a href="index.html#about">About</a>
+                <a href="index.html#academics">Academics</a>
+                <a href="index.html#admissions">Admissions</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+
+            <div>
+                <h3>Social</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">in</a>
+                    <a href="#" aria-label="YouTube">yt</a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">Copyright 2026 Trinity Public School. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Activity Slider
+            new Swiper(".activity-slider", {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 }
+                },
+                autoplay: { delay: 4000 }
+            });
+
+            // Faculty Slider
+      new Swiper(".faculty-slider", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+          el: ".faculty-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 4 }
+        },
+        autoplay: { delay: 3500 }
+      });
+
+      // Gallery Slider (3x2 format per slide)
+            new Swiper(".gallery-slider", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".gallery-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".gallery-next",
+                    prevEl: ".gallery-prev",
+                },
+            });
+
+            // LightBox Logic for Gallery
+            const modal = document.getElementById("galleryModal");
+            const modalImg = document.getElementById("modalImg");
+            const captionText = document.getElementById("modalCaption");
+            const downloadBtn = document.getElementById("downloadBtn");
+            const galleryImages = Array.from(document.querySelectorAll(".gallery-item img"));
+            let currentIndex = 0;
+
+            const updateModal = (index) => {
+                currentIndex = index;
+                const img = galleryImages[currentIndex];
+                modalImg.src = img.src;
+                captionText.innerHTML = img.alt || `Campus View ${currentIndex + 1}`;
+                downloadBtn.href = img.src;
+            };
+
+            galleryImages.forEach((img, index) => {
+                img.addEventListener("click", () => {
+                    modal.classList.add("active");
+                    updateModal(index);
+                    document.body.style.overflow = "hidden";
+                });
+            });
+
+            document.getElementById("modalNext").addEventListener("click", (e) => {
+                e.stopPropagation();
+                updateModal((currentIndex + 1) % galleryImages.length);
+            });
+
+            document.getElementById("modalPrev").addEventListener("click", (e) => {
+                e.stopPropagation();
+                updateModal((currentIndex - 1 + galleryImages.length) % galleryImages.length);
+            });
+
+            const closeModal = () => {
+                modal.classList.remove("active");
+                document.body.style.overflow = "auto";
+            };
+
+            document.querySelector(".modal-close").addEventListener("click", closeModal);
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal || e.target.classList.contains('modal-wrapper')) closeModal();
+            });
+
+            // Keyboard Navigation
+            document.addEventListener("keydown", (e) => {
+                if (!modal.classList.contains("active")) return;
+                if (e.key === "ArrowRight") updateModal((currentIndex + 1) % galleryImages.length);
+                if (e.key === "ArrowLeft") updateModal((currentIndex - 1 + galleryImages.length) % galleryImages.length);
+                if (e.key === "Escape") closeModal();
+            });
+        });
+    </script>
+</body>
+
+</html>
