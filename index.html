@@ -25,6 +25,7 @@
         <div class="brand-text">
           <strong>Trinity Public School</strong>
           <small>Aim and Attain The Greatest.</small>
+          <small>ESTD 1998</small>
         </div>
       </a>
 
@@ -88,24 +89,27 @@
           </div>
         </div>
         <!-- Slide 5 -->
-        <div class="swiper-slide hero-slide no-zoom" style="background-image: url('images/Topper1.png');">
-          <div class="hero-image-overlay"></div>
+        <div class="swiper-slide hero-slide no-zoom">
+          <div class="hero-image-overlay" style="background-image: url('images/Topper1.png');"></div>
+          <img src="images/Topper1.png" alt="Topper 1" class="topper-img-mobile">
           <div class="container hero-grid">
             <div class="hero-content"></div>
           </div>
         </div>
 
         <!-- Slide 6 -->
-        <div class="swiper-slide hero-slide no-zoom" style="background-image: url('images/Topper2.png');">
-          <div class="hero-image-overlay"></div>
+        <div class="swiper-slide hero-slide no-zoom">
+          <div class="hero-image-overlay" style="background-image: url('images/Topper2.png');"></div>
+          <img src="images/Topper2.png" alt="Topper 2" class="topper-img-mobile">
           <div class="container hero-grid">
             <div class="hero-content"></div>
           </div>
         </div>
 
         <!-- Slide 7 -->
-        <div class="swiper-slide hero-slide no-zoom" style="background-image: url('images/Topper3.png');">
-          <div class="hero-image-overlay"></div>
+        <div class="swiper-slide hero-slide no-zoom">
+          <div class="hero-image-overlay" style="background-image: url('images/Topper3.png');"></div>
+          <img src="images/Topper3.png" alt="Topper 3" class="topper-img-mobile">
           <div class="container hero-grid">
             <div class="hero-content"></div>
           </div>
@@ -118,31 +122,85 @@
       <div class="swiper-button-next"></div>
     </section>
 
+    <!-- Announcement Bar -->
+    <section class="announcement-bar" aria-label="Announcement">
+      <div class="announcement-track">
+        <span>* Admissions Open 2026–2027</span>
+        <span>* Limited Seats Available</span>
+      </div>
+    </section>
+
 
     <!-- About -->
-    <section class="section-padding" id="about">
-      <div class="container about-new-layout">
-        <div class="about-content-col reveal">
+    <section class="about-section section-padding" id="about">
+      <div class="container about-grid-new">
+        <div class="about-accordion-col reveal">
           <p class="eyebrow">About Our School</p>
-          <h2 class="about-title">A caring campus built for strong foundations and confident futures.</h2>
-          <p class="about-desc">
-            Trinity Public School offers a <strong>complete learning journey</strong> from Nursery to Class 12. We
-            combine disciplined academics with communication skills, sports, arts, technology, and values-based
-            mentoring.
-          </p>
-          <a href="achievements.html" class="btn-maroon-arrow reveal">
-            <span class="btn-icon">🏛️</span>
+          <div class="about-accordion">
+            <div class="accordion-item active">
+              <button class="accordion-header">
+                History
+                <span class="accordion-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="accordion-content">
+                <div class="content-inner">
+                  <p>Trinity Public School has a rich history of academic excellence spanning over 25 years. Founded
+                    with the vision of providing quality education, we have consistently evolved to meet the needs of
+                    our students, building a legacy of trust and performance.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                About Us
+                <span class="accordion-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="accordion-content">
+                <div class="content-inner">
+                  <p>We are a co-educational institution dedicated to fostering holistic growth. Our campus is a vibrant
+                    community where students are encouraged to explore their passions, develop strong values, and
+                    prepare for a global future.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Trinity Public School
+                <span class="accordion-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="accordion-content">
+                <div class="content-inner">
+                  <p>Located in a serene environment, Trinity Public School offers state-of-the-art facilities and a
+                    curriculum that balances traditional values with modern educational practices. We aim to attain the
+                    greatest in every student.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="#academics" class="btn btn-primary rounded-full reveal about-explore-btn">
             Explore Campus
             <span class="btn-arrow">→</span>
           </a>
         </div>
-
         <div class="about-image-col reveal">
-          <img src="images/ClassRoom.jpg" alt="Students learning in a classroom" />
+          <img src="images/ClassRoom.jpg" alt="Trinity Public School Campus" class="about-image" />
         </div>
       </div>
-
-
     </section>
 
     <!-- Leadership Team -->

@@ -44,7 +44,32 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ---------------------------------------------------------
-     2. HEADER ACTIVE LINKS (ScrollSpy)
+     2. ACCORDION (ABOUT SECTION)
+     --------------------------------------------------------- */
+  const accordionItems = document.querySelectorAll(".accordion-item");
+
+  accordionItems.forEach((item) => {
+    const header = item.querySelector(".accordion-header");
+
+    if (header) {
+      header.addEventListener("click", () => {
+        const isActive = item.classList.contains("active");
+
+        // Close all other items
+        accordionItems.forEach((otherItem) => {
+          otherItem.classList.remove("active");
+        });
+
+        // Toggle current item
+        if (!isActive) {
+          item.classList.add("active");
+        }
+      });
+    }
+  });
+
+  /* ---------------------------------------------------------
+     3. HEADER ACTIVE LINKS (ScrollSpy)
      --------------------------------------------------------- */
   const updateHeaderState = () => {
     let currentSection = null;
@@ -110,39 +135,44 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------------------------------------------------------
      5. TYPING ANIMATION
      --------------------------------------------------------- */
-  const initTypingAnimation = () => {
-    const typingElements = document.querySelectorAll(".typing-text");
+  const typingElements = document.querySelectorAll(".typing-text");
+  
+  // Store original text in data attribute for repeated use
+  typingElements.forEach(el => {
+    el.setAttribute("data-text", el.textContent);
+    el.textContent = "";
+  });
 
-    typingElements.forEach((el) => {
-      const text = el.textContent;
-      el.textContent = "";
-      let i = 0;
+  const runTypingAnimation = (activeSlide) => {
+    const el = activeSlide.querySelector(".typing-text");
+    if (!el) return;
 
-      const type = () => {
-        if (i < text.length) {
-          el.textContent += text.charAt(i);
-          i++;
-          setTimeout(type, 100);
-        }
-      };
+    const text = el.getAttribute("data-text");
+    el.textContent = "";
+    let i = 0;
 
-      setTimeout(type, 1000);
-    });
+    const type = () => {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 80); // Slightly faster typing
+      }
+    };
+
+    setTimeout(type, 500); // Start after slide transition
   };
-
-  initTypingAnimation();
 
   /* ---------------------------------------------------------
      6. HERO SLIDER (Swiper.js)
      --------------------------------------------------------- */
   if (document.querySelector(".hero-slider")) {
-    new Swiper(".hero-slider", {
+    const heroSwiper = new Swiper(".hero-slider", {
       loop: true,
       speed: 1000,
       effect: "fade",
       fadeEffect: { crossFade: true },
       autoplay: {
-        delay: 5000,
+        delay: 6000, // Slightly longer delay
         disableOnInteraction: false,
       },
       simulateTouch: false,
@@ -158,6 +188,18 @@ document.addEventListener("DOMContentLoaded", () => {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
+      on: {
+        init: function () {
+          // Trigger animation for initial slide after a short delay
+          setTimeout(() => {
+            runTypingAnimation(this.slides[this.activeIndex]);
+          }, 500);
+        },
+        slideChangeTransitionStart: function () {
+          // Trigger animation whenever slide changes
+          runTypingAnimation(this.slides[this.activeIndex]);
+        }
+      }
     });
   }
 });
