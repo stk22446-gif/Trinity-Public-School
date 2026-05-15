@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
      1. MOBILE MENU LOGIC
      --------------------------------------------------------- */
   if (menuToggle && navMenu && menuOverlay) {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
     const toggleMenu = (forceClose = false) => {
       const isOpen = forceClose ? false : !navMenu.classList.contains("open");
       
@@ -30,6 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
       menuOverlay.classList.toggle("visible", isOpen);
       menuToggle.setAttribute("aria-expanded", String(isOpen));
       
+      // Close all dropdowns when menu closes
+      if (!isOpen) {
+        dropdowns.forEach(dd => dd.classList.remove("active"));
+      }
+
       // Prevent scrolling when menu is open
       body.style.overflow = isOpen ? "hidden" : "";
     };
@@ -37,9 +44,36 @@ document.addEventListener("DOMContentLoaded", () => {
     menuToggle.addEventListener("click", () => toggleMenu());
     menuOverlay.addEventListener("click", () => toggleMenu(true));
     
-    // Close menu when a link is clicked
+    // Close menu when a standard link is clicked (not a dropdown trigger)
     navLinks.forEach((link) => {
-      link.addEventListener("click", () => toggleMenu(true));
+      link.addEventListener("click", (e) => {
+        if (window.innerWidth <= 991 && link.classList.contains("dropdown-trigger")) {
+          // It's a dropdown trigger on mobile - toggle dropdown instead of closing menu
+          e.preventDefault();
+          const parent = link.closest(".dropdown");
+          const isActive = parent.classList.contains("active");
+          
+          // Close other dropdowns
+          dropdowns.forEach(dd => dd.classList.remove("active"));
+          
+          // Toggle current
+          if (!isActive) {
+            parent.classList.add("active");
+          }
+        } else {
+          // Standard link - close menu
+          toggleMenu(true);
+        }
+      });
+    });
+
+    /* ---------------------------------------------------------
+       1.5. WINDOW RESIZE HANDLING
+       --------------------------------------------------------- */
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 991 && navMenu.classList.contains("open")) {
+        toggleMenu(true);
+      }
     });
   }
 
